@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TradeController {
    
-    List<Map<String, Object>> list = new ArrayList<Map<String, Object>>(); 
-    @RequestMapping("/greeting")
+  
+    @RequestMapping("/alltrade")
     public List<Map<String, Object>> greeting(@RequestParam(value="name", defaultValue="World") String name) throws SQLException {
     	Connection conn = null;
         String sql;
-       
+        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>(); 
           String url = "jdbc:mysql://localhost:3306/test?"
                   + "user=root&password=root&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT";
           try {
