@@ -1,3 +1,6 @@
-/Users/lingzhuojun/Desktop/CitiProject/Trading Platform/Supporting Items/CitiTechProject/Workspace/TradePlatform/src/main/java/controller/TradeController.java
-/Users/lingzhuojun/Desktop/CitiProject/Trading Platform/Supporting Items/CitiTechProject/Workspace/TradePlatform/src/main/java/controller/Application.java
-/Users/lingzhuojun/Desktop/CitiProject/Trading Platform/Supporting Items/CitiTechProject/Workspace/TradePlatform/src/main/java/model/Trade.java
+/Users/lingzhuojun/git/TradingPlatformJava10/TradePlatform/src/main/java/repository/OrderRepository.java
+/Users/lingzhuojun/git/TradingPlatformJava10/TradePlatform/src/main/java/model/Trade.java
+/Users/lingzhuojun/git/TradingPlatformJava10/TradePlatform/src/main/java/controller/TradeController.java
+/Users/lingzhuojun/git/TradingPlatformJava10/TradePlatform/src/main/java/controller/Application.java
+/Users/lingzhuojun/git/TradingPlatformJava10/TradePlatform/src/main/java/model/Order.java
+/Users/lingzhuojun/git/TradingPlatformJava10/TradePlatform/src/main/java/controller/Generator.java
