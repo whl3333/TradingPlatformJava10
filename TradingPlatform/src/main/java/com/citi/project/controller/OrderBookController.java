@@ -18,11 +18,11 @@ public class OrderBookController
 
    @GetMapping(value = "/orderbooks")
    public List<OrderBook> getAll(){
-//       List<OrderBook> list =  orderBookService.find();
-//       for(int i=0; i<list.size (); i++){
-//           list.get (i).setOrderID (0);
-//       }
-//       return list;
-       return orderBookService.find();
+       List<OrderBook> list =  orderBookService.find();
+       for(int i=0; i<list.size (); i++){
+           list.get (i).setOrderID (0);
+       }
+       return list;
+//       return orderBookService.find();
    }
 }
