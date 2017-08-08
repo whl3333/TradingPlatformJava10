@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 @Entity
 public class OrderBook
     implements Serializable
