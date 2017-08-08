@@ -3,14 +3,15 @@ package com.citi.project.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table (name="trader")
 public class Trader
 {
     @Id
     @GeneratedValue
     private int id;
-    private int tradeID;
     private String firstName;
     private String lastName;
     
@@ -24,10 +25,11 @@ public class Trader
         super ();
         this.id = id;
     }
-
-    public Trader (int tradeID, String firstName, String lastName)
+    
+    public Trader (int id, String firstName, String lastName)
     {
-        this.tradeID = tradeID;
+        super ();
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -40,16 +42,6 @@ public class Trader
     public void setId (int id)
     {
         this.id = id;
-    }
-
-    public int getTradeID ()
-    {
-        return tradeID;
-    }
-
-    public void setTradeID (int tradeID)
-    {
-        this.tradeID = tradeID;
     }
 
     public String getFirstName ()
@@ -75,8 +67,9 @@ public class Trader
     @Override
     public String toString ()
     {
-        return "Trader [tradeID=" + tradeID + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+        return "Trader [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
     }
+    
 
-}
+  }
 
