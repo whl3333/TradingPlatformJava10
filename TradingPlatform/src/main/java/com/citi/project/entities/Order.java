@@ -35,20 +35,23 @@ public class Order
         this.id = id;
     }
 
-    public Order (int traderID, String symbol, String orderType, boolean side, int quantity, double price,
-        Timestamp createTime, Timestamp cancelTime)
-    {
-        this.traderID = traderID;
-        this.symbol = symbol;
-        this.orderType = orderType;
-        this.side = side;
-        this.quantity = quantity;
-        this.price = price;
-        this.createTime = createTime;
-        this.cancelTime = cancelTime;
-    }
+   
 
-    public int getId ()
+    public Order(int id, int traderID, String symbol, String orderType, boolean side, int quantity, double price,
+			Timestamp createTime, Timestamp cancelTime) {
+		super();
+		this.id = id;
+		this.traderID = traderID;
+		this.symbol = symbol;
+		this.orderType = orderType;
+		this.side = side;
+		this.quantity = quantity;
+		this.price = price;
+		this.createTime = createTime;
+		this.cancelTime = cancelTime;
+	}
+
+	public int getId ()
     {
         return id;
     }
