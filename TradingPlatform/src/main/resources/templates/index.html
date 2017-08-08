@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelesf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8"></meta>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous" />
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script
+	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+<script type="text/javascript" >
+$.get("./orderbooks",function(data , status){
+	console.log(data);
+})
+</script>
+</head>
+
+<body>
+	<nav></nav>
+
+	<div class="container">
+		<h1>Trading Platform</h1>
+		<nav></nav>
+		<div class="row">
+			<div class="col-sm-8">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Symbol</th>
+							<th>BIDPrice</th>
+							<th>BIDQuantity</th>
+							<th>OFFERPrice</th>
+							<th>OFFERQuantity</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Appl</td>
+							<td>100</td>
+							<td>10</td>
+							<td>111</td>
+							<td>9</td>
+
+						</tr>
+						<tr>
+							<td>Appl</td>
+							<td>100</td>
+							<td>10</td>
+							<td>111</td>
+							<td>9</td>
+
+						</tr>
+						<tr>
+							<td>Appl</td>
+							<td>100</td>
+							<td>10</td>
+							<td>111</td>
+							<td>9</td>
+
+						</tr>
+						<tr>
+							<td>Appl</td>
+							<td>100</td>
+							<td>10</td>
+							<td>111</td>
+							<td>9</td>
+
+						</tr>
+					</tbody>
+				</table>
+				<nav></nav>
+				<div class="orderbooks">
+					<form>
+						<div class="form-group">
+							<h5>Choose the symbol</h5>
+							<select class="form-control" id="exampleSelect1">
+								<option>Appl</option>
+								<option>IBM</option>
+								<option>Sony</option>
+								<option>C</option>
+								<option>Simons</option>
+							</select>
+						</div>
+					</form>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-6">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>BIDPrice</th>
+											<th>BIDQuantity</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>111</td>
+											<td>6</td>
+										</tr>
+										<tr>
+											<td>188</td>
+											<td>9</td>
+										</tr>
+										<tr>
+											<td>188</td>
+											<td>9</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-sm-6">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>OFFERPrice</th>
+											<th>OFFERQuantity</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>111</td>
+											<td>6</td>
+										</tr>
+										<tr>
+											<td>188</td>
+											<td>9</td>
+										</tr>
+										<tr>
+											<td>188</td>
+											<td>9</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div id="legend" class="">
+					<legend class="">Order</legend>
+				</div>
+				<form role="form">
+					<div class="form-group">
+						<label class="form-label ">Side</label> <label
+							class="radio-inline" style="padding-left: 40px;"> <input
+							type="radio" name="optionsRadiosinline" id="optionsRadios3"
+							value="option1" checked="true"></input> Buy
+						</label> <label class="radio-inline "> <input type="radio"
+							name="optionsRadiosinline" id="optionsRadios4" value="option2"></input>Sell
+						</label>
+					</div>
+					<div class="form-group">
+						<label class="form-label ">Symbol</label> <select
+							class="form-control">
+							<option>Appl</option>
+							<option>IBM</option>
+							<option>C</option>
+							<option>Simons</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="form-label ">Quantity</label> <input type="text"
+							class="form-control"></input>
+					</div>
+					<div class="form-group">
+						<label class="form-label ">Price</label> <input type="text"
+							class="form-control"></input>
+					</div>
+					<!--  <div class="form-group">
+                        <label class="form-label ">Strategy</label>
+                        <select class="form-control">
+                            <option>Strategy("FOK")</option>
+                            <option>Strategy("FOK")</option>
+                            <option>Strategy("FOK")</option>
+                            <option>Strategy("FOK")</option>
+                                                    </select>
+                    </div> -->
+					<div class="form-group">
+						<label class="form-label ">OrderType</label> <select
+							class="form-control">
+							<option>OrderType1</option>
+							<option>OrderType2</option>
+							<option>OrderType3</option>
+							<option>OrderType4</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-default" style="float: right;">submit</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<nav></nav>
+	<div class="container">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#all"
+				aria-controls="home" role="tab" data-toggle="tab">All</a></li>
+			<li role="presentation"><a href="#success"
+				aria-controls="profile" role="tab" data-toggle="tab">Success</a></li>
+			<li role="presentation"><a href="#active"
+				aria-controls="messages" role="tab" data-toggle="tab">Active</a></li>
+			<li role="presentation"><a href="#reject"
+				aria-controls="messages" role="tab" data-toggle="tab">Reject</a></li>
+
+		</ul>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="all">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Number</th>
+							<th>Side</th>
+							<th>Symbol</th>
+							<th>Quantity</th>
+							<th>Strategy</th>
+							<th>TotalMoney</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>01</td>
+							<td>Buy</td>
+							<td>Appl</td>
+							<td>10</td>
+							<td>Strategy("FOK")</td>
+							<td>1000</td>
+							<td>Success</td>
+						</tr>
+						<tr>
+							<td>02</td>
+							<td>Suy</td>
+							<td>Appl</td>
+							<td>10</td>
+							<td>Strategy("FOK")</td>
+							<td>1000</td>
+							<td>Fail</td>
+
+						</tr>
+						<tr>
+							<td>03</td>
+							<td>Suy</td>
+							<td>Appl</td>
+							<td>10</td>
+							<td>Strategy("FOK")</td>
+							<td>1000</td>
+							<td>Active</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="success">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Number</th>
+							<th>Side</th>
+							<th>Symbol</th>
+							<th>Quantity</th>
+							<th>Strategy</th>
+							<th>TotalMoney</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>01</td>
+							<td>Buy</td>
+							<td>Appl</td>
+							<td>10</td>
+							<td>Strategy("FOK")</td>
+							<td>1000</td>
+							<td>Success</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="reject">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Number</th>
+							<th>Side</th>
+							<th>Symbol</th>
+							<th>Quantity</th>
+							<th>Strategy</th>
+							<th>TotalMoney</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>02</td>
+							<td>Sell</td>
+							<td>Appl</td>
+							<td>10</td>
+							<td>Strategy("FOK")</td>
+							<td>1000</td>
+							<td>Reject</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="active">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Number</th>
+							<th>Side</th>
+							<th>Symbol</th>
+							<th>Quantity</th>
+							<th>Strategy</th>
+							<th>TotalMoney</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>01</td>
+							<td>Buy</td>
+							<td>Appl</td>
+							<td>10</td>
+							<td>Strategy("FOK")</td>
+							<td>1000</td>
+							<td>Active</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
