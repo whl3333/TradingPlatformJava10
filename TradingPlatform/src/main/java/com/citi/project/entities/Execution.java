@@ -3,8 +3,10 @@ package com.citi.project.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "execution")
 public class Execution
 {   
     @Id
