@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 @Entity
 public class OrderBook
     implements Serializable
@@ -18,7 +20,7 @@ public class OrderBook
     private int id;
 
     @Column(name = "orderID", nullable = true)
-    private Integer orderID;
+    private Integer orderID = new Integer(0);
 
     private String symbol;
 
@@ -39,7 +41,7 @@ public class OrderBook
         this.id = id;
     }
 
-    public OrderBook (int orderID, String symbol, char type, double price, int quantity)
+    public OrderBook (Integer orderID, String symbol, char type, double price, int quantity)
     {
         super ();
         this.orderID = orderID;
