@@ -5,9 +5,11 @@ import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Orders 
+@Table(name = "orders")
+public class Order 
 {
 
     @Id
@@ -22,18 +24,18 @@ public class Orders
     private Timestamp createTime;
     private Timestamp cancelTime;
 
-    public Orders ()
+    public Order ()
     {
         // TODO Auto-generated constructor stub
     }
 
-    public Orders (int id)
+    public Order (int id)
     {
         super ();
         this.id = id;
     }
 
-    public Orders (int traderID, String symbol, String orderType, boolean side, int quantity, double price,
+    public Order (int traderID, String symbol, String orderType, boolean side, int quantity, double price,
         Timestamp createTime, Timestamp cancelTime)
     {
         this.traderID = traderID;

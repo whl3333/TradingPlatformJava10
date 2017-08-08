@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.citi.project.entities.Orders;
+import com.citi.project.entities.Order;
 import com.citi.project.service.OrderService;
 
 @RestController
@@ -18,7 +18,7 @@ public class OrderController
     private OrderService orderService;
 
      @RequestMapping(method = RequestMethod.GET)
-    public List<Orders> getAll(){
+    public List<Order> getAll(){
 
         return orderService.find();
     }
