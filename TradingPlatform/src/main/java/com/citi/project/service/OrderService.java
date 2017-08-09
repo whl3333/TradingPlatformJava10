@@ -18,4 +18,14 @@ public class OrderService
         return orderRespository.findAll();
     }
 
+    public Order insert (Order order)
+    {
+        return orderRespository.save(order);
+    }
+
+    public List<Order> findByTraderID (int traderID)
+    {
+        return orderRespository.findByTraderID(traderID);
+    }
+
 }

@@ -19,4 +19,14 @@ public class ExecutionService
        return  executionRepository.findAll ();
     }
 
+    public Execution insert (Execution execution)
+    {
+        // TODO Auto-generated method stub
+        return executionRepository.save (execution);
+    }
+
+    public List<Execution> getPerformance(int orderID)
+    {
+        return executionRepository.findByOrderID(orderID);
+    }
 }

@@ -123,9 +123,9 @@ public class Order
         return createTime;
     }
 
-    public void setCreateTime (Timestamp createTime)
+    public void setCreateTime ()
     {
-        this.createTime = createTime;
+        this.createTime = new Timestamp(System.currentTimeMillis ());
     }
 
     public Timestamp getCancelTime ()

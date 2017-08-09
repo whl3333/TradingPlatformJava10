@@ -2,3 +2,4 @@
 .project
 .log
 .classpath
+application.yml
