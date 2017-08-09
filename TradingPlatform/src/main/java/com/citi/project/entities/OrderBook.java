@@ -19,8 +19,7 @@ public class OrderBook
     @GeneratedValue
     private int id;
 
-    @Column(name = "orderID", nullable = true)
-    private Integer orderID = new Integer(0);
+    private Integer orderID;
 
     private String symbol;
 
@@ -61,12 +60,12 @@ public class OrderBook
         this.id = id;
     }
 
-    public int getOrderID ()
+    public Integer getOrderID ()
     {
         return orderID;
     }
 
-    public void setOrderID (int orderID)
+    public void setOrderID (Integer orderID)
     {
         this.orderID = orderID;
     }
