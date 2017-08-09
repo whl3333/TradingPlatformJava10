@@ -18,15 +18,10 @@ public class OrderBook
     @Id
     @GeneratedValue
     private int id;
-
     private Integer orderID = new Integer(0);
-
     private String symbol;
-
     private char type;
-
     private double price;
-
     private int quantity;
 
     public OrderBook ()

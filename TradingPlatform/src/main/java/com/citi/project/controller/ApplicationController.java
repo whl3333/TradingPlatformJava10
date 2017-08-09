@@ -13,4 +13,5 @@ public class ApplicationController
     public ModelAndView  index(){
         return new ModelAndView("index");
     }
+    
 }

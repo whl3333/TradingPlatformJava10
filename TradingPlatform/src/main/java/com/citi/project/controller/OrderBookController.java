@@ -1,5 +1,6 @@
 package com.citi.project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,28 +25,30 @@ public class OrderBookController
 {
     @Autowired
    private OrderBookService orderBookService;
+    
+   private List<OrderBook> list;
    
    @GetMapping(value="/getAll")
   public List<OrderBook> getAll(){
        Sort sort = new Sort(Sort.Direction.DESC,"price");
-       List<OrderBook> list=orderBookService.find (sort);
-       return list;
-      // return orderBookService.find();
+       this.list=orderBookService.find (sort);
+       return this.list;
   }
    
    @GetMapping(value="/getAllSorted")
    public List<OrderBook> getAllSorted(@RequestParam(value="type",required=false,defaultValue="B") char type){
-       Sort sort;
-       if(type=='B'){
-           sort = new Sort(Sort.Direction.ASC,"price");
-       }
-       else if(type=='O'){
-           sort = new Sort(Sort.Direction.DESC,"price");   
-       }else{
-           return null;
-       }
-       List<OrderBook> list=orderBookService.findByType (type,sort);
-       return list;
+       
+       List<OrderBook> typeList=orderBookService.findByType (type);
+       return typeList;
+   }
+   
+   @GetMapping(value="/getSymbols")
+   public List<String> getSymbols(){  
+       List<String> symbols = new ArrayList<String>();
+       for(OrderBook o:this.list){
+           symbols.add (o.getSymbol ());
+           }
+       return symbols;
    }
    
 //   @GetMapping(value="/insert")

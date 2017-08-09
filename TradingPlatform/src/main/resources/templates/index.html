@@ -1,359 +1,239 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymelesf.org">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymelesf.org">
 
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8"></meta>
+<title>Tables | Klorofil - Free Bootstrap Dashboard Template</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-<!-- Bootstrap CSS -->
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!-- VENDOR CSS -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	crossorigin="anonymous" />
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	href="assets/vendor/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet"
-	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous" />
-
-<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-<link rel="stylesheet"
-	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous" />
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script
-	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
-<script type="text/javascript" >
-$.get("./orderbooks",function(data , status){
-	console.log(data);
-})
-</script>
+	href="assets/vendor/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/vendor/linearicons/style.css" />
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="assets/css/main.css" />
+<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+<link rel="stylesheet" href="assets/css/demo.css" />
+<!-- GOOGLE FONTS -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700"
+	rel="stylesheet" />
+<!-- ICONS -->
+<link rel="apple-touch-icon" sizes="76x76"
+	href="assets/img/apple-icon.png" />
+<link rel="icon" type="image/png" sizes="96x96"
+	href="assets/img/favicon.png" />
 </head>
 
 <body>
-	<nav></nav>
-
-	<div class="container">
-		<h1>Trading Platform</h1>
-		<nav></nav>
-		<div class="row">
-			<div class="col-sm-8">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>Symbol</th>
-							<th>BIDPrice</th>
-							<th>BIDQuantity</th>
-							<th>OFFERPrice</th>
-							<th>OFFERQuantity</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Appl</td>
-							<td>100</td>
-							<td>10</td>
-							<td>111</td>
-							<td>9</td>
-
-						</tr>
-						<tr>
-							<td>Appl</td>
-							<td>100</td>
-							<td>10</td>
-							<td>111</td>
-							<td>9</td>
-
-						</tr>
-						<tr>
-							<td>Appl</td>
-							<td>100</td>
-							<td>10</td>
-							<td>111</td>
-							<td>9</td>
-
-						</tr>
-						<tr>
-							<td>Appl</td>
-							<td>100</td>
-							<td>10</td>
-							<td>111</td>
-							<td>9</td>
-
-						</tr>
-					</tbody>
-				</table>
-				<nav></nav>
-				<div class="orderbooks">
-					<form>
-						<div class="form-group">
-							<h5>Choose the symbol</h5>
-							<select class="form-control" id="exampleSelect1">
-								<option>Appl</option>
-								<option>IBM</option>
-								<option>Sony</option>
-								<option>C</option>
-								<option>Simons</option>
-							</select>
-						</div>
-					</form>
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-6">
-								<table class="table table-hover">
-									<thead>
-										<tr>
-											<th>BIDPrice</th>
-											<th>BIDQuantity</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>111</td>
-											<td>6</td>
-										</tr>
-										<tr>
-											<td>188</td>
-											<td>9</td>
-										</tr>
-										<tr>
-											<td>188</td>
-											<td>9</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="col-sm-6">
-								<table class="table table-hover">
-									<thead>
-										<tr>
-											<th>OFFERPrice</th>
-											<th>OFFERQuantity</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>111</td>
-											<td>6</td>
-										</tr>
-										<tr>
-											<td>188</td>
-											<td>9</td>
-										</tr>
-										<tr>
-											<td>188</td>
-											<td>9</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="assets/img/logo-dark.png"
+					alt="Klorofil Logo" class="img-responsive logo" /></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth">
+						<i class="lnr lnr-arrow-left-circle"></i>
+					</button>
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><i class="lnr lnr-question-circle"></i>
+								<span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Basic Use</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><img src="assets/img/user.png"
+								class="img-circle" alt="Avatar" /> <span>Samuel</span> <i
+								class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="lnr lnr-user"></i> <span>My
+											Profile</span></a></li>
+								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
+								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+							</ul></li>
+					</ul>
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div id="legend" class="">
-					<legend class="">Order</legend>
-				</div>
-				<form role="form">
-					<div class="form-group">
-						<label class="form-label ">Side</label> <label
-							class="radio-inline" style="padding-left: 40px;"> <input
-							type="radio" name="optionsRadiosinline" id="optionsRadios3"
-							value="option1" checked="true"></input> Buy
-						</label> <label class="radio-inline "> <input type="radio"
-							name="optionsRadiosinline" id="optionsRadios4" value="option2"></input>Sell
-						</label>
-					</div>
-					<div class="form-group">
-						<label class="form-label ">Symbol</label> <select
-							class="form-control">
-							<option>Appl</option>
-							<option>IBM</option>
-							<option>C</option>
-							<option>Simons</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label class="form-label ">Quantity</label> <input type="text"
-							class="form-control"></input>
-					</div>
-					<div class="form-group">
-						<label class="form-label ">Price</label> <input type="text"
-							class="form-control"></input>
-					</div>
-					<!--  <div class="form-group">
-                        <label class="form-label ">Strategy</label>
-                        <select class="form-control">
-                            <option>Strategy("FOK")</option>
-                            <option>Strategy("FOK")</option>
-                            <option>Strategy("FOK")</option>
-                            <option>Strategy("FOK")</option>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="index.html" class=""><i class="lnr lnr-home"></i>
+								<span>OrderBooks</span></a></li>
+						<li><a href="performance.html" class=""><i
+								class="lnr lnr-dice"></i> <span>Performance</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<h3 class="page-title">Orders</h3>
+					<div class="row">
+					<!-- TABLE ORDERBOOKS -->
+						<div class="col-md-6 pull-left" style="width: 70%; padding: 1%">
+							<div class="panel">
+								<div class="panel-body">
+									<div class="panel-heading" style="padding-left: 1%">
+										<h3 class="panel-title">Choose the symbol</h3>
+									</div>
+									<div class="form-group">
+										<select class="form-control" id="symbolselect">
+											<option>APPLE</option>
+											<option>CITI</option>
+											<option>ABT</option>
+											<option>IBM</option>
+										</select>
+									</div>
+									<table class="table table-striped table-hover" style="text-align: center">
+										<thead>
+											<tr>
+												<th style="text-align: center !important">Symbol</th>
+												<th style="text-align: center !important">BidPrice</th>
+												<th style="text-align: center !important">BidQuantity</th>
+												<th style="text-align: center !important">OfferPrice</th>
+												<th style="text-align: center !important">OfferQuantity</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Appl</td>
+												<td>100</td>
+												<td>10</td>
+												<td>111</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td>Appl</td>
+												<td>100</td>
+												<td>10</td>
+												<td>111</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td>Appl</td>
+												<td>100</td>
+												<td>10</td>
+												<td>111</td>
+												<td>9</td>
+											</tr>
+											<tr>
+												<td>Appl</td>
+												<td>100</td>
+												<td>10</td>
+												<td>111</td>
+												<td>9</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- TABLE ORDERBOOKS -->
+						</div>
+
+						<div class="col-md-6 pull-left"
+							style="width: 25%; padding-top: 1%; padding-bottom: 1%">
+							<!-- COMMIT TABLE -->
+							<div class="panel">
+								<div class="panel-body">
+
+									<div id="legend" class="">
+										<legend class="">Order</legend>
+									</div>
+									<div class="form-group">
+										<label class="form-label ">Side</label> <label
+											class="radio-inline" style="padding-left: 40px;"> <input
+											type="radio" name="optionsRadiosinline" id="optionsRadios3"
+											value="B" checked="true"></input> Buy
+										</label> <label class="radio-inline "> <input type="radio"
+											name="optionsRadiosinline" id="optionsRadios4" value="O"></input>Sell
+										</label>
+									</div>
+									<div class="form-group">
+										<label class="form-label">Symbol</label> <select
+											class="form-control symbol">
+											<option>APPLE</option>
+											<option>ABT</option>
+											<option>IBM</option>
+											<option>CITI</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label class="form-label ">Quantity</label> <input type="text"
+											class="form-control quantity"></input>
+									</div>
+									<div class="form-group">
+										<label class="form-label ">Price</label> <input type="text"
+											class="form-control price"></input>
+									</div>
+									<!--  <div class="form-group">
+                        					<label class="form-label ">Strategy</label>
+                        					<select class="form-control">
+                            				<option>Strategy("FOK")</option>
+                            				<option>Strategy("FOK")</option>
+                            				<option>Strategy("FOK")</option>
+                            				<option>Strategy("FOK")</option>
                                                     </select>
-                    </div> -->
-					<div class="form-group">
-						<label class="form-label ">OrderType</label> <select
-							class="form-control">
-							<option>OrderType1</option>
-							<option>OrderType2</option>
-							<option>OrderType3</option>
-							<option>OrderType4</option>
-						</select>
+                    						</div> -->
+									<div class="form-group">
+										<label class="form-label ">OrderType</label> <select
+											class="form-control ordertype">
+											<option>Market Order</option>
+											<option>Immediate or Cancel</option>
+											<option>Fill or Kill</option>
+											<option>Good til Cancelled</option>
+											<option>Limit Order</option>
+											<option>Stop Order(Stop Loss)</option>
+											<option>Stop-Limit</option>
+										</select>
+									</div>
+									<button id='submit' class="btn btn-default"
+										style="float: right;">submit</button>
+
+								</div>
+							</div>
+						</div>
+						<!-- END COMMIT TABLE -->
 					</div>
-					<button type="submit" class="btn btn-default" style="float: right;">submit</button>
-
-				</form>
+				</div>
 			</div>
+			<!-- END MAIN CONTENT -->
 		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">
+					&copy; 2017 <a href="#" target="_blank">Trading Platform</a>. All
+					Rights Reserved.
+				</p>
+			</div>
+		</footer>
 	</div>
-	<nav></nav>
-	<div class="container">
-		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#all"
-				aria-controls="home" role="tab" data-toggle="tab">All</a></li>
-			<li role="presentation"><a href="#success"
-				aria-controls="profile" role="tab" data-toggle="tab">Success</a></li>
-			<li role="presentation"><a href="#active"
-				aria-controls="messages" role="tab" data-toggle="tab">Active</a></li>
-			<li role="presentation"><a href="#reject"
-				aria-controls="messages" role="tab" data-toggle="tab">Reject</a></li>
-
-		</ul>
-		<!-- Tab panes -->
-		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="all">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>Number</th>
-							<th>Side</th>
-							<th>Symbol</th>
-							<th>Quantity</th>
-							<th>Strategy</th>
-							<th>TotalMoney</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>01</td>
-							<td>Buy</td>
-							<td>Appl</td>
-							<td>10</td>
-							<td>Strategy("FOK")</td>
-							<td>1000</td>
-							<td>Success</td>
-						</tr>
-						<tr>
-							<td>02</td>
-							<td>Suy</td>
-							<td>Appl</td>
-							<td>10</td>
-							<td>Strategy("FOK")</td>
-							<td>1000</td>
-							<td>Fail</td>
-
-						</tr>
-						<tr>
-							<td>03</td>
-							<td>Suy</td>
-							<td>Appl</td>
-							<td>10</td>
-							<td>Strategy("FOK")</td>
-							<td>1000</td>
-							<td>Active</td>
-
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div role="tabpanel" class="tab-pane" id="success">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>Number</th>
-							<th>Side</th>
-							<th>Symbol</th>
-							<th>Quantity</th>
-							<th>Strategy</th>
-							<th>TotalMoney</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>01</td>
-							<td>Buy</td>
-							<td>Appl</td>
-							<td>10</td>
-							<td>Strategy("FOK")</td>
-							<td>1000</td>
-							<td>Success</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div role="tabpanel" class="tab-pane" id="reject">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>Number</th>
-							<th>Side</th>
-							<th>Symbol</th>
-							<th>Quantity</th>
-							<th>Strategy</th>
-							<th>TotalMoney</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>02</td>
-							<td>Sell</td>
-							<td>Appl</td>
-							<td>10</td>
-							<td>Strategy("FOK")</td>
-							<td>1000</td>
-							<td>Reject</td>
-
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div role="tabpanel" class="tab-pane" id="active">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>Number</th>
-							<th>Side</th>
-							<th>Symbol</th>
-							<th>Quantity</th>
-							<th>Strategy</th>
-							<th>TotalMoney</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>01</td>
-							<td>Buy</td>
-							<td>Appl</td>
-							<td>10</td>
-							<td>Strategy("FOK")</td>
-							<td>1000</td>
-							<td>Active</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
 </body>
 
 </html>

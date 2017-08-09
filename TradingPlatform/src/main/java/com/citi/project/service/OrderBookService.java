@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.citi.project.entities.Execution;
 import com.citi.project.entities.OrderBook;
 import com.citi.project.repository.OrderBookRespository;
 
@@ -25,16 +26,29 @@ public class OrderBookService
         return orderBookDAO.findAll (sort);
     }
 
-    public List<OrderBook> findByType (char type, Sort sort)
+    public List<OrderBook> findByType (char type)
     {
-        // TODO Auto-generated method stub
+        Sort sort;
+    if(type=='B'){
+        sort = new Sort(Sort.Direction.ASC,"price");
+    }
+    else if(type=='O'){
+        sort = new Sort(Sort.Direction.DESC,"price");   
+    }else{
+        return null;
+    }
         return orderBookDAO.findByType (type, sort);
     }
 
     public OrderBook insert (OrderBook orderBook)
     {
-        // TODO Auto-generated method stub
         return orderBookDAO.save (orderBook);
     }
-
+    public void delete(OrderBook orderBook){
+        //@throws IllegalArgumentException in case the given {@link Iterable} is {@literal null}.
+        orderBookDAO.delete (orderBook);
+    }
+    public void update(OrderBook orderBook){
+        orderBookDAO.save (orderBook);
+    }
 }
