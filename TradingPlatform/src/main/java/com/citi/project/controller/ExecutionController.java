@@ -1,7 +1,9 @@
 package com.citi.project.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Transient;
@@ -16,6 +18,7 @@ import com.citi.project.entities.Order;
 import com.citi.project.entities.OrderBook;
 import com.citi.project.entities.ReturnData;
 import com.citi.project.service.ExecutionService;
+import com.citi.project.service.OrderService;
 
 @RestController
 @RequestMapping("/execution")
@@ -24,12 +27,26 @@ public class ExecutionController
 
     @Autowired
     private ExecutionService executionService;
-
-
-    @RequestMapping(method = RequestMethod.GET)
+    @Autowired
+    private OrderService orderService;
+    
+    private List<Execution> list;
+    
+    @RequestMapping(value="/getAll",method = RequestMethod.GET)
     public List<Execution> getAll(){
-
-        return executionService.find();
+        this.list = executionService.find();
+        return list;
+    }
+    
+    @RequestMapping(value="/getSymbols", method = RequestMethod.GET)
+    public Map<Integer, String > getSymbols(){
+        List<Order> olist = orderService.find ();
+        Map<Integer, String> map = new HashMap<Integer, String>();
+        for(Order order:olist){
+            map.put (order.getId (), order.getSymbol ());
+            
+        }
+        return map;
     }
      
 //     @GetMapping("/getPerformance")
