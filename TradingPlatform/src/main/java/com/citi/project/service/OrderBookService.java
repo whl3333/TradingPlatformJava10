@@ -51,4 +51,17 @@ public class OrderBookService
     public void update(OrderBook orderBook){
         orderBookDAO.save (orderBook);
     }
+    public List<OrderBook> findByTypeAndSymbol(char type, String symbol){
+    	
+    		Sort sort;
+        if(type=='B'){
+            sort = new Sort(Sort.Direction.ASC,"price");
+        }
+        else if(type=='O'){
+            sort = new Sort(Sort.Direction.DESC,"price");   
+        }else{
+            return null;
+        }
+            return orderBookDAO.findByTypeAndSymbol (type,symbol, sort);
+        }
 }

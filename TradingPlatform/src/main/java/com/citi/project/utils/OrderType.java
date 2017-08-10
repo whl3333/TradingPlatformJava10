@@ -47,8 +47,8 @@ public class OrderType {
 				a= i;
 			}
 			executions.get(a).setQuantity(orderBooks.get(a).getQuantity()-(count-order.getQuantity()));
-			orderBooks.get (a).setQuantity (count-order.getQuantity());
-            executeOrderBooks.add (orderBooks.get(a));
+			executeOrderBooks.get (a).setQuantity (count-order.getQuantity());
+//            executeOrderBooks.add (orderBooks.get(a));
 			res.setExecutions (executions);
 			res.setOrderBooks (executeOrderBooks);
 			return res;
@@ -75,8 +75,8 @@ public class OrderType {
         }
         int rest=(count-order.getQuantity())<0? 0:count-order.getQuantity();
         executions.get(a).setQuantity(orderBooks.get(a).getQuantity()-rest);
-        orderBooks.get(a).setQuantity (rest);
-        executeOrderBooks.add (orderBooks.get(a));
+        executeOrderBooks.get(a).setQuantity (rest);
+//        executeOrderBooks.add (orderBooks.get(a));
         Execution execution = new Execution(order.getId(), "rejection",order.getQuantity()-count,0.0);
         executions.add (execution);
         res.setExecutions (executions);

@@ -46,11 +46,11 @@ public class OrderController
     public ReturnData execute(
         @RequestParam(value ="traderID",required = false, defaultValue="0")int traderID,
         @RequestParam(value ="symbol",required = false, defaultValue="CITI")String symbol,
-        @RequestParam(value ="ordertype",required = false, defaultValue="MRKT")String ordertype,
+        @RequestParam(value ="orderType",required = false, defaultValue="MRKT")String ordertype,
         @RequestParam(value ="side",required = false, defaultValue="0")boolean side,
         @RequestParam(value ="quantity",required = false, defaultValue="0")int quantity,
         @RequestParam(value = "price",required = false, defaultValue="0")double price,
-        @RequestParam(value = "traderID",required = false, defaultValue="2014-05-20 21:33:00")Timestamp cancelTime){
+        @RequestParam(value = "cancelTime",required = false, defaultValue="2014-05-20 21:33:00")Timestamp cancelTime){
         
         Order order = new Order(traderID, symbol, ordertype,side, quantity, price, new Timestamp(System.currentTimeMillis ()),cancelTime);        
         Order newOrder=orderService.insert(order);
@@ -64,14 +64,14 @@ public class OrderController
         List<Execution> elist=new ArrayList<Execution>();
         
         if(newOrder.isSide ()){
-            oblist = orderBookService.findByType ('O');
+            oblist = orderBookService.findByTypeAndSymbol ('O',order.getSymbol());
         }else{
-            oblist = orderBookService.findByType ('B');
+            oblist = orderBookService.findByTypeAndSymbol('B',order.getSymbol());
         }
         
         GTCReturn res = new GTCReturn();
         switch(newOrder.getOrderType ()){
-            case "MTKT": {
+            case "MRKT": {
                 res = OrderType.ExecuteMrkt (newOrder, oblist);
                 System.out.println (2);
                 break;
