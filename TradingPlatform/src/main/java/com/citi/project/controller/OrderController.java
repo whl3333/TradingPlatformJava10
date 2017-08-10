@@ -45,7 +45,9 @@ public class OrderController
     @RequestMapping("/execute")
     public ReturnData execute(
         @RequestParam(value ="traderID",required = false, defaultValue="0")int traderID,
-        @RequestParam(value ="symbol",required = false, defaultValue="CITI")String symbol,
+
+        @RequestParam(value ="symbol",required = false, defaultValue="HRB")String symbol,
+
         @RequestParam(value ="orderType",required = false, defaultValue="MRKT")String ordertype,
         @RequestParam(value ="side",required = false, defaultValue="0")boolean side,
         @RequestParam(value ="quantity",required = false, defaultValue="0")int quantity,
@@ -73,12 +75,10 @@ public class OrderController
         switch(newOrder.getOrderType ()){
             case "MRKT": {
                 res = OrderType.ExecuteMrkt (newOrder, oblist);
-                System.out.println (2);
                 break;
             }
             case "IOC":{
-                res = OrderType.ExecuteIOC (newOrder, oblist);     
-                System.out.println (4);
+                res = OrderType.ExecuteIOC (newOrder, oblist);   
                 break;
             }
             case "FOK":{
@@ -99,7 +99,7 @@ public class OrderController
         oblist = res.getOrderBooks ();
 
         if(oblist!=null){
-            for(int i = 0; i<oblist.size ()-1; i++){
+            for(int i = 0; i<oblist.size (); i++){
                 orderBookService.delete (oblist.get (i));
             }
             orderBookService.update (oblist.get (oblist.size ()-1));
@@ -108,16 +108,14 @@ public class OrderController
         if(elist!=null){
             for(Execution execution:elist){
                 executionService.insert (execution);
-                System.out.println (5);
+              
             }
         }else if( newOrder.getOrderType ().equals ("GTC")){
-            return new ReturnData(0, "active", null);
+            return new ReturnData(0, "ACTIVE", null);
         }else{
-            System.out.println (6);
-            return new ReturnData(0, "failed", null);
+            return new ReturnData(0, "DONE NOTHING", null);
         }
-        System.out.println (7);
-        return new ReturnData(1, "success", elist);
+        return new ReturnData(1, "DONE", elist);
     }
 
 }

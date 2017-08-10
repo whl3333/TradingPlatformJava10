@@ -48,6 +48,12 @@ public class OrderBookService
         //@throws IllegalArgumentException in case the given {@link Iterable} is {@literal null}.
         orderBookDAO.delete (orderBook);
     }
+    public void deleteByQuantity(List<OrderBook> orderBooks){
+        for(OrderBook orderBook:orderBooks){
+            if(orderBook.getQuantity ()==0)
+                orderBookDAO.delete (orderBook);
+        }
+    }
     public void update(OrderBook orderBook){
         orderBookDAO.save (orderBook);
     }
