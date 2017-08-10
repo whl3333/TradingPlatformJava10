@@ -31,14 +31,28 @@ public class OrderBookController
    @GetMapping(value="/getAll")
   public List<OrderBook> getAll(){
        Sort sort = new Sort(Sort.Direction.DESC,"price");
+       this.list=orderBookService.find ();
+       orderBookService.deleteByQuantity (list);
        this.list=orderBookService.find (sort);
        return this.list;
   }
    
    @GetMapping(value="/getAllSorted")
-   public List<OrderBook> getAllSorted(@RequestParam(value="type",required=false,defaultValue="B") char type){
+   public List<OrderBook> getAllSorted(@RequestParam(value="type",required=false,defaultValue="O") char type){
        
        List<OrderBook> typeList=orderBookService.findByType (type);
+       orderBookService.deleteByQuantity (typeList);
+       typeList=orderBookService.findByType (type);
+       return typeList;
+   }
+   
+   @GetMapping(value="/get")
+   public List<OrderBook> findByTypeAndSymbol(@RequestParam(value="type",required=false,defaultValue="O") char type,
+       @RequestParam(value="symbol",required=false,defaultValue="HRB") String symbol){
+       
+       List<OrderBook> typeList=orderBookService.findByTypeAndSymbol (type, symbol);
+       orderBookService.deleteByQuantity (typeList);
+       typeList=orderBookService.findByTypeAndSymbol (type, symbol);
        return typeList;
    }
    

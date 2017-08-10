@@ -11,4 +11,6 @@ import com.citi.project.entities.OrderBook;
 public interface OrderBookRespository extends JpaRepository<OrderBook, Integer>
 {
     List<OrderBook> findByType(char type, Sort sort);
+
+    List<OrderBook> findByTypeAndSymbol (char type, String symbol, Sort sort);
 }
