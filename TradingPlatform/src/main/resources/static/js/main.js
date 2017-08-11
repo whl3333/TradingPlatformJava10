@@ -3,6 +3,69 @@ $(document).ready(function() {
     var symbols = [];
     var symbolname = [];
 
+    function loaddata() {
+        symbols = [];
+        symbolname = [];
+        $.ajax({
+            type: "GET",
+            url: "./orderbook/getAllSorted?type=B",
+            async: false,
+            success: function(result) {
+                var bidall = result;
+                selectsymbol(bidall);
+            }
+        });
+        $.ajax({
+            type: "GET",
+            url: "./orderbook/getAllSorted?type=O",
+            async: false,
+            success: function(result) {
+                var offerall = result;
+                    selectsymbol(offerall);
+                    $(".symbol option").remove();
+                    $('.symbolselect option').not(":first").remove();
+
+                    for (var i = 0; i < symbolname.length; i++) {
+                        $(".symbol").append('<option>' + symbolname[i] + '</option>');
+                        $(".symbolselect").append('<option>' + symbolname[i] + '</option>');
+                        symbols.push();
+                    }
+                
+            }
+        });
+    }
+
+    function selectsymbol(array) {
+
+        for (var i = 0; i < array.length; i++) {
+
+            var index = symbolname.indexOf(array[i].symbol);
+            if (index != -1) {
+                if (array[i].type == "O") {
+                    symbols[index].offer.push(array[i])
+                }
+                if (array[i].type == "B") {
+                    symbols[index].bid.push(array[i])
+                }
+
+            } else {
+                symbolname.push(array[i].symbol);
+                var obj = new Object();
+                obj.bid = [];
+                obj.offer = [];
+
+                if (array[i].type == "O") {
+                    obj.offer.push(array[i])
+                }
+                if (array[i].type == "B") {
+                    obj.bid.push(array[i])
+                }
+                symbols.push(obj);
+            }
+
+        }
+    }
+
     var utils = {
         showsymbolprice: function(number) {
             $(".bestpricediv").hide();
@@ -50,77 +113,11 @@ $(document).ready(function() {
     }
 
 
-    function selectsymbol(array) {
+    loaddata();
+    utils.showbestdata();
 
-        for (var i = 0; i < array.length; i++) {
 
-            var index = symbolname.indexOf(array[i].symbol);
-            if (index != -1) {
-                if (array[i].type == "O") {
-                    symbols[index].offer.push(array[i])
-                }
-                if (array[i].type == "B") {
-                    symbols[index].bid.push(array[i])
-                }
 
-            } else {
-                symbolname.push(array[i].symbol);
-                var obj = new Object();
-                obj.bid = [];
-                obj.offer = [];
-
-                if (array[i].type == "O") {
-                    obj.offer.push(array[i])
-                }
-                if (array[i].type == "B") {
-                    obj.bid.push(array[i])
-                }
-                symbols.push(obj);
-            }
-
-        }
-    };
-
-    function loaddata(argument) {
-        symbols = [];
-        symbolname = [];
-        $.get("./orderbook/getAllSorted?type=B", function(result) {
-            bidall = result;
-            selectsymbol(bidall);
-
-            $.get("./orderbook/getAllSorted?type=O", function(result) {
-                offerall = result;
-                selectsymbol(offerall);
-                $(".symbol option").remove();
-                $('.symbolselect option').not(":first").remove();
-
-                for (var i = 0; i < symbolname.length; i++) {
-                    $(".symbol").append('<option>' + symbolname[i] + '</option>');
-                    $(".symbolselect").append('<option>' + symbolname[i] + '</option>');
-                    symbols.push();
-                }
-            });
-        });
-    }
-    $.get("./orderbook/getAllSorted?type=B", function(result) {
-            bidall = result;
-            selectsymbol(bidall);
-
-            $.get("./orderbook/getAllSorted?type=O", function(result) {
-                offerall = result;
-                selectsymbol(offerall);
-                $(".symbol option").remove();
-                $('#symbolselect option').not(":first").remove();
-
-                for (var i = 0; i < symbolname.length; i++) {
-                    $(".symbol").append('<option>' + symbolname[i] + '</option>');
-                    $("#symbolselect").append('<option>' + symbolname[i] + '</option>');
-                    symbols.push();
-                }
-
-                utils.showbestdata();
-            });
-        });
 
     $("#submit").click(function(event) {
 
@@ -164,11 +161,12 @@ $(document).ready(function() {
                         result += 'EXECUTION(' + (i + 1) + ')  Status : ' + exct[i].result + "\n";
                     }
                     alert(result);
+
+                    loaddata();
+                    utils.showbestdata();
                 }
             }
         })
-        loaddata();
-        utils.showbestdata();
 
     });
 

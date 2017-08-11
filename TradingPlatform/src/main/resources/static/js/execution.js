@@ -47,8 +47,8 @@ $(function() {
         		}
         	}
             var newrow = '<tr><td>' + a+ '</td><td>' + b +'</td><td>' + c+ '</td><td>' + d + '</td><td>'+'<span>' + e+ '</span></td></tr>';
-            $(".executions").find('tbody').append(newrow);
-            $(".executions").find('tbody').find('tr').eq(i).find('span').eq(0).addClass(f);
+            $(".executions").find('tbody').prepend(newrow);
+            $(".executions").find('tbody').find('tr').eq(0).find('span').eq(0).addClass(f);
         }
     };
 	showexecutions();
