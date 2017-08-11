@@ -21,16 +21,16 @@ $(document).ready(function() {
             async: false,
             success: function(result) {
                 var offerall = result;
-                    selectsymbol(offerall);
-                    $(".symbol option").remove();
-                    $('.symbolselect option').not(":first").remove();
+                selectsymbol(offerall);
+                $(".symbol option").remove();
+                $('.symbolname option').not(":first").remove();
 
-                    for (var i = 0; i < symbolname.length; i++) {
-                        $(".symbol").append('<option>' + symbolname[i] + '</option>');
-                        $(".symbolselect").append('<option>' + symbolname[i] + '</option>');
-                        symbols.push();
-                    }
-                
+                for (var i = 0; i < symbolname.length; i++) {
+                    $(".symbol").append('<option>' + symbolname[i] + '</option>');
+                    $(".symbolname").append('<option>' + symbolname[i] + '</option>');
+                    symbols.push();
+                }
+
             }
         });
     }
@@ -156,14 +156,13 @@ $(document).ready(function() {
                 } else {
 
                     var exct = data.data;
-                    var result = '';
+                    var result = "Your order's Status :" + "\n";
                     for (var i = 0; i < exct.length; i++) {
                         result += 'EXECUTION(' + (i + 1) + ')  Status : ' + exct[i].result + "\n";
                     }
                     alert(result);
 
                     loaddata();
-                    utils.showbestdata();
                 }
             }
         })
@@ -188,6 +187,7 @@ $(document).ready(function() {
             utils.showbestdata();
         } else {
             utils.showsymbolprice(selectIndex - 1);
+            $(".symbol").find("option").eq(selectedIndex - 1).attr("selected", true);
         }
 
     });
