@@ -48,7 +48,7 @@ public class OrderBookController
    
    @GetMapping(value="/get")
    public List<OrderBook> findByTypeAndSymbol(@RequestParam(value="type",required=false,defaultValue="O") char type,
-       @RequestParam(value="symbol",required=false,defaultValue="HRB") String symbol){
+       @RequestParam(value="symbol",required=false,defaultValue="A") String symbol){
        
        List<OrderBook> typeList=orderBookService.findByTypeAndSymbol (type, symbol);
        orderBookService.deleteByQuantity (typeList);

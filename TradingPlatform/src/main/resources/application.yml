@@ -5,7 +5,7 @@ spring:
 #      suffix: .jsp
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1/mydb?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1/test?useUnicode=true&characterEncoding=utf8
     username: root
     password: wangHUIling
   jpa:

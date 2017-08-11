@@ -1,190 +1,160 @@
-$(document).ready(function(){
-    var bidall = [];
-    var offerall = [];
-    
-    var apple = {
-        bid: [],
-        offer: []
-    };
-    var citi = {
-        bid: [],
-        offer: []
-    };
-    var abt = {
-        bid: [],
-        offer: []
-    };
-    var ibm = {
-        bid: [],
-        offer: []
-    };
+$(document).ready(function() {
+
+    var symbols = [];
 
     var utils = {
-        showsymbolprice: function(symbol) {
+        showsymbolprice: function(number) {
+            $(".bestpricediv").hide();
+            $(".symbolprice").show();
+            $(".symbolprice").find("tbody").find("tr").remove();
 
-            			$(".bidprice").find('tr').eq(1).find('td').eq(0).text(
-            					symbol.bid[0].price);
-            			$(".bidprice").find('tr').eq(1).find('td').eq(1).text(
-            					symbol.bid[0].quantity);
-            			$(".bidprice").find('tr').eq(2).find('td').eq(0).text(
-            					symbol.bid[1].price);
-            			$(".bidprice").find('tr').eq(2).find('td').eq(1).text(
-            					symbol.bid[1].quantity);
-            			$(".bidprice").find('tr').eq(3).find('td').eq(0).text(
-            					symbol.bid[2].price);
-            			$(".bidprice").find('tr').eq(3).find('td').eq(1).text(
-            					symbol.bid[2].quantity);
-            
-            			$(".offerprice").find('tr').eq(1).find('td').eq(0).text(
-            					symbol.offer[0].price);
-            			$(".offerprice").find('tr').eq(1).find('td').eq(1).text(
-            					symbol.offer[0].quantity);
-            			$(".offerprice").find('tr').eq(2).find('td').eq(0).text(
-            					symbol.offer[1].price);
-            			$(".offerprice").find('tr').eq(2).find('td').eq(1).text(
-            					symbol.offer[1].quantity);
-            			$(".offerprice").find('tr').eq(3).find('td').eq(0).text(
-            					symbol.offer[2].price);
-            			$(".offerprice").find('tr').eq(3).find('td').eq(1).text(
-            					symbol.offer[2].quantity);
+
+            for (var i = 0; i < symbols[number].bid.length; i++) {
+                var newrow = '<tr><td>' + symbols[number].bid[i].price + '</td><td>' + symbols[number].bid[i].quantity + '</td></tr>';
+                $(".bidprice").find('tbody').append(newrow);
+                
+                
+
+            }
+            for (var i = 0; i < symbols[number].offer.length; i++) {
+                var newrow = '<tr><td>' + symbols[number].offer[i].price + '</td><td>' + symbols[number].offer[i].quantity + '</td></tr>';
+                $(".offerprice").find('tbody').append(newrow);
+            }
 
         },
         showbestdata: function() {
-            			$(".bestprice").find('tr').eq(1).find('td').eq(1).text(
-            					apple.bid[0].price);
-            			$(".bestprice").find('tr').eq(1).find('td').eq(2).text(
-            					apple.bid[0].quantity);
-            			$(".bestprice").find('tr').eq(1).find('td').eq(3).text(
-            					apple.offer[0].price);
-            			$(".bestprice").find('tr').eq(1).find('td').eq(4).text(
-            					apple.offer[0].quantity);
-
-            			$(".bestprice").find('tr').eq(2).find('td').eq(1).text(
-            					citi.bid[0].price);
-            			$(".bestprice").find('tr').eq(2).find('td').eq(2).text(
-            					citi.bid[0].quantity);
-            			$(".bestprice").find('tr').eq(2).find('td').eq(3).text(
-            					citi.offer[0].price);
-            			$(".bestprice").find('tr').eq(2).find('td').eq(4).text(
-            					citi.offer[0].quantity);
-
-            			$(".bestprice").find('tr').eq(3).find('td').eq(1).text(
-            					abt.bid[0].price);
-            			$(".bestprice").find('tr').eq(3).find('td').eq(2).text(
-            					abt.bid[0].quantity);
-            			$(".bestprice").find('tr').eq(3).find('td').eq(3).text(
-            					abt.offer[0].price);
-            			$(".bestprice").find('tr').eq(3).find('td').eq(4).text(
-            					abt.offer[0].quantity);
-
-            			$(".bestprice").find('tr').eq(4).find('td').eq(1).text(
-            					ibm.bid[0].price);
-            			$(".bestprice").find('tr').eq(4).find('td').eq(2).text(
-            					ibm.bid[0].quantity);
-            			$(".bestprice").find('tr').eq(4).find('td').eq(3).text(
-            					ibm.offer[0].price);
-            			$(".bestprice").find('tr').eq(4).find('td').eq(4).text(
-            					ibm.offer[0].quantity);
-
-
+            $(".bestpricediv").show();
+            $(".bestprice").find('tbody').find("tr").remove();
+            for (var i = 0; i < symbols.length; i++) {
+                var a = 0,
+                    b = 0,
+                    c = 0,
+                    d = 0,
+                    e = 0;
+                if (symbols[i].bid[0] != undefined) {
+                    a = symbols[i].bid[0].symbol;
+                    b = symbols[i].bid[0].price;
+                    c = symbols[i].bid[0].quantity;
+                }
+                if (symbols[i].offer[0] != undefined) {
+                    a = symbols[i].offer[0].symbol;
+                    d = symbols[i].offer[0].price;
+                    e = symbols[i].offer[0].quantity;
+                }
+                var newrow = '<tr><td>' + a + '</td><td>' + b + '</td><td>' + c + '</td><td>' + d + '</td><td>' + e + '</td></tr>';
+                $(".bestprice").find('tbody').append(newrow);
+            }
         }
 
+    }
+    var symbolname = [];
+    function selectsymbol(array){
+
+    	for (var i = 0; i < array.length; i++) {
+
+    		var index = symbolname.indexOf(array[i].symbol);
+    		if(index != -1){
+    				if (array[i].type=="O") {
+    					symbols[index].offer.push(array[i])
+    				}
+    				if (array[i].type=="B") {
+    					symbols[index].bid.push(array[i])
+    				}
+    			
+    		}else{
+    			symbolname.push(array[i].symbol);
+    			var obj = new Object();	
+    			obj.bid = [];
+    			obj.offer = [];
+
+    			if (array[i].type=="O") {
+    					obj.offer.push(array[i])
+    				}
+    				if (array[i].type=="B") {
+    					obj.bid.push(array[i])
+    				}
+    			symbols.push(obj);
+    		}
+                 
+    	}
     };
 
     $.get("./orderbook/getAllSorted?type=B", function(result) {
         bidall = result;
-        for (var i = 0; i < bidall.length; i++) {
-            switch (bidall[i].symbol) {
-                case 'APPLE':
-                    apple.bid.push(bidall[i])
-                    break;
-                case 'CITI':
-                    citi.bid.push(bidall[i])
-                    break;
-                case 'ABT':
-                    abt.bid.push(bidall[i])
-                    break;
-                case 'IBM':
-                    ibm.bid.push(bidall[i])
-                    break;
-                default:
-                    break;
+        selectsymbol(bidall);
+
+        $.get("./orderbook/getAllSorted?type=O", function(result) {
+            offerall = result;
+            selectsymbol(offerall);
+            utils.showbestdata();
+            $(".symbol option").remove();
+            $('.symbolname option').not(":first").remove();
+
+            for (var i = 0; i < symbolname.length; i++) {
+            	$(".symbol").append('<option>'+symbolname[i]+'</option>');
+            	$(".symbolname").append('<option>'+symbolname[i]+'</option>');
+            	symbols.push();
             }
-        }
-
-      $.get("./orderbook/getAllSorted?type=O", function(result) {
-        offerall = result;
-        for (var i = 0; i < offerall.length; i++) {
-            switch (offerall[i].symbol) {
-                case 'APPLE':
-                    apple.offer.push(offerall[i])
-                    break;
-                case 'CITI':
-                    citi.offer.push(offerall[i])
-                    break;
-                case 'ABT':
-                    abt.offer.push(offerall[i])
-                    break;
-                case 'IBM':
-                    ibm.offer.push(offerall[i])
-                    break;
-                default:
-                    break;
-            }
-
-        }
-
-    }); 
+            
+        });
     });
-    utils.showbestdata();
-    utils.showsymbolprice(apple);   
 
-	 $("#submit").click(function(event) {
+
+
+    $("#submit").click(function(event) {
+
+    	if ($('.quantity').val()=='') {
+    		alert("You should input right data!!!");
+    		return ;
+    	}
+        if ($('.symbol option:selected').get(0).selectedIndex == 2 || $('.symbol option:selected').get(0).selectedIndex == 3) {
+            $('.price').removeAttr("disabled");
+        }
 
         var order = {
-            side: $(
-                    "input[name='optionsRadiosinline']:checked")
-                .val(),
+            side: $("input[name='optionsRadiosinline']:checked").val(),
             symbol: $('.symbol option:selected').text(),
             quantity: $('.quantity').val(),
             price: $('.price').val(),
-            ordertype: $('.ordertype option:selected').text(),
+            ordertype: $('.ordertype option:selected').val(),
         }
 
-        var url = '.order/execute?' + 'ordertype=' +
-            order.ordertype+ '&symbol=' + order.symbol +
+        var url = 'order/execute?' + 'orderType=' +
+            order.ordertype + '&symbol=' + order.symbol +
             '&side=' + order.side + '&quantity=' +
-            order.quantity + '&price=' + order.price;
+            order.quantity + '&price=' + order.price + '&traderID=' + 0 + "&cancelTime=" + "2013-8-23 4:55:19";
+
 
         $.ajax({
             type: "GET",
             url: url,
             success: function(data) {
-                console.log(data);
+                if (data.data == null)
+                    alert("返回的是null")
             }
         })
     })
-    
-    $("#symbolselect").change(function(){
-   	 var selectIndex = $("#symbolselect").get(0).selectedIndex;
-        switch (selectIndex) {
-            case 0:
-                utils.showsymbolprice(apple);
-                break;
-            case 1:
-                utils.showsymbolprice(citi);
-                break;
-            case 2:
-                utils.showsymbolprice(abt);
-                break;
-            case 3:
-                utils.showsymbolprice(ibm);
-                break;
-            default:
-                // statements_def
-                break;
+
+     $(".ordertype").change(function() {
+        var selectIndex = $(".ordertype").get(0).selectedIndex;
+        if (selectIndex==0 || selectIndex==1 ){
+        	$('.price').attr("disabled","disabled");
+        }else{        	
+        	$('.price').removeAttr("disabled");
         }
-   	 
-    });	
+
+
+    });   
+
+    $("#symbolselect").change(function() {
+        var selectIndex = $("#symbolselect").get(0).selectedIndex;
+        if (selectIndex==0) {
+        	$(".symbolprice").hide();
+                utils.showbestdata();
+        }else{
+        	utils.showsymbolprice(selectIndex-1);
+        }
+
+    });
 
 })
