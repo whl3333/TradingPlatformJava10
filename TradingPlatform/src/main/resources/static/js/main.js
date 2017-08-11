@@ -187,7 +187,7 @@ $(document).ready(function() {
             utils.showbestdata();
         } else {
             utils.showsymbolprice(selectIndex - 1);
-            $(".symbol").find("option").eq(selectedIndex - 1).attr("selected", true);
+            $(".symbol").find("option").eq(selectIndex - 1).attr("selected", true);
         }
 
     });
